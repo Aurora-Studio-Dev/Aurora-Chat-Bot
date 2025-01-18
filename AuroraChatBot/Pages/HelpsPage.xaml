@@ -1,0 +1,19 @@
+<Page x:Class="AuroraChatBot.Pages.HelpsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AuroraChatBot.Pages"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d"
+      Title="HelpsPage">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Help}" FontSize="27"/>
+                <TextBlock Margin="10,0,0,0" FontSize="30" Text="帮助"/>
+            </StackPanel>
+            <TextBlock FontSize="15" Text="帮助与支持。"/>
+        </StackPanel>
+    </Grid>
+</Page>

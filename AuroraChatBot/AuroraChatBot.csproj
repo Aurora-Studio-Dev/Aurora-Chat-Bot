@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <Company>Aurora Studio (THZ)</Company>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
+        <ApplicationIcon>Image\Icon\logo.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Betalgo.OpenAI" Version="8.7.2" />
+      <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.9.30" />
+      <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1" />
+      <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="SharpVectors" Version="1.8.4.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Fonts\Mooli.ttf" />
+      <Resource Include="Fonts\Mooli.ttf" />
+      <None Remove="Image\Icon\TONGYI.svg" />
+      <Resource Include="Image\Icon\TONGYI.svg" />
+      <None Remove="Image\Icon\WENXIN.svg" />
+      <Resource Include="Image\Icon\WENXIN.svg" />
+      <None Remove="Image\Icon\ZHIPU.svg" />
+      <Resource Include="Image\Icon\ZHIPU.svg" />
+      <None Remove="Fonts\YSZW.ttf" />
+      <Resource Include="Fonts\YSZW.ttf" />
+      <None Remove="Image\Icon\logo.png" />
+      <Resource Include="Image\Icon\logo.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Image\" />
+    </ItemGroup>
+
+</Project>
