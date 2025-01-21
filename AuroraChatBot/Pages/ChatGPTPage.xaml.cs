@@ -18,7 +18,7 @@ public partial class ChatGPTPage
     private static readonly HttpClient httpClient = new HttpClient();
     //public static string OpenAIApiKey { get; set; }
     ///public static string OpenAIApiUrl { get; set; }
-    private string OpenAIApiKey = "sk-fR7Ho6pRPuXrDpkNK1VKJWzrctdGz1Z453jUYREpQz7c4kO3"; // 替换为您的API密钥
+    private string OpenAIApiKey = "sk-114514kfcVme50ThankYouVeryMuch"; // 替换为您的API密钥
     private string OpenAIApiUrl = "https://api.chatanywhere.tech/v1/chat/completions"; // GPT API的URL
     public ObservableCollection<ChatMessage> Messages { get; set; } // 消息集合
     
