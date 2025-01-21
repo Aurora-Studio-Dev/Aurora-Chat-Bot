@@ -4,9 +4,10 @@
 Aurora Chat Bot
 </h1>
 <p align="center">不仅仅可以聊天</p>
-<p align='center'>
-  [![打包和发布 WPF 应用](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml)
-</p>
+  
+[![](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml)
+![](https://img.shields.io/badge/许可证-GPL3.0-blue)
+![](https://img.shields.io/badge/计算机软件著作权登记号-2025SR0102045-yellow)
 
 ## 法律版权
 Windows 软件「 Aurora Chat Bot 」已进行中华人民共和国计算机软件著作权登记，并以GPL3.0免费开源，一切侵权行为将依法追究。
