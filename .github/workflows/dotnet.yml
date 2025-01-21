@@ -1,4 +1,4 @@
-name: 打包和发布应用
+name: 打包和发布 WPF 应用
 
 on:
   push:
@@ -12,12 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: 安装 .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: 恢复依赖项
-      run: dotnet restore
     - name: 构建应用
       run: dotnet build --no-restore --configuration Release
     - name: 运行测试
@@ -40,6 +34,9 @@ jobs:
         with:
           name: build-artifacts
 
+      - name: 检出代码
+        uses: actions/checkout@v4
+
       - name: 获取最新提交信息
         id: get_commit_message
         run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
@@ -50,8 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}  # 使用运行编号作为版本号
-          release_name: ${{ env.COMMIT_MESSAGE }}  # 使用最新提交信息作为发布标题
+          tag_name: v${{ github.run_number }}
+          release_name: ${{ env.COMMIT_MESSAGE }}
           body: |
             发布说明：第 ${{ github.run_number }} 版
           draft: false
@@ -63,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build  # 确保这是构建产物的正确路径
-          asset_name: ASL.zip  # 使用项目名称作为压缩包名称
+          asset_path: ./build
+          asset_name: WPFApp.zip
           asset_content_type: application/zip
