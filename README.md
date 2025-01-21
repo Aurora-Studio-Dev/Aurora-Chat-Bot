@@ -5,9 +5,7 @@ Aurora Chat Bot
 </h1>
 <p align="center">不仅仅可以聊天</p>
 <p align='center'>
-  <a href="https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/action">
-    <img src='https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml' alt="构建发布状态"/>
-  </a>
+  [![打包和发布 WPF 应用](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml)
 </p>
 
 ## 法律版权
