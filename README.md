@@ -4,7 +4,11 @@
 Aurora Chat Bot
 </h1>
 <p align="center">不仅仅可以聊天</p>
-
+<p align='center'>
+  <a href="https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/action">
+    <img src='https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml' alt="构建发布状态"/>
+  </a>
+</p>
 
 ## 法律版权
 Windows 软件「 Aurora Chat Bot 」已进行中华人民共和国计算机软件著作权登记，并以GPL3.0免费开源，一切侵权行为将依法追究。
