@@ -45,3 +45,18 @@ jobs:
       with:
         name: Aurora-Chat-Bot
         path: Aurora-Chat-Bot/bin/Release
+
+    # 发布
+    - name: Zip the Build
+      run: zip -r ${{ secrets.ReleaseZipName }} ./AuroraChatBot/bin/Debug/
+    - name: Create Release and Upload Release Asset
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        tag_name: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        body: TODO New Release.
+        draft: false
+        prerelease: false
+        files: |
+          ${{ secrets.ReleaseZipName }}.zip
