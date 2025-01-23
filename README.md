@@ -5,7 +5,7 @@ Aurora Chat Bot
 </h1>
 <p align="center">不仅仅可以聊天</p>
   
-[![](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/dotnet.yml)
+[![](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/main.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/main.yml)
 ![](https://img.shields.io/badge/许可证-GPL3.0-blue)
 ![](https://img.shields.io/badge/计算机软件著作权登记号-2025SR0102045-yellow)
 
