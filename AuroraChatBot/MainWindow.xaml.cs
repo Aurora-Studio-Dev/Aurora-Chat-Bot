@@ -3,10 +3,10 @@ using iNKORE.UI.WPF.Modern;
 using System.IO;
 using System.Reflection;
 using iNKORE.UI.WPF.Modern.Controls;
-using AuroraChatBot.Pages;  
+using StarsAICopilot.Pages;  
 using Page = System.Windows.Controls.Page;
 
-namespace AuroraChatBot;
+namespace StarsAICopilot;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
@@ -33,9 +33,8 @@ public partial class MainWindow
     {
         try
         {
-            //生成ASL文件夹
             string applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string FolderName = "acb";
+            string FolderName = "sac";
             string FolderPath = Path.Combine(applicationDirectory, FolderName);
             if (!Directory.Exists(FolderPath))
             {

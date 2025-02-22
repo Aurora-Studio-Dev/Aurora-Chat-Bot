@@ -2,7 +2,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 
-namespace AuroraChatBot.Pages
+namespace StarsAICopilot.Pages
 {
     public partial class HomePage
     {

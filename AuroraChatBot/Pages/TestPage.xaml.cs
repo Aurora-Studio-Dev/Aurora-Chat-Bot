@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace AuroraChatBot.Pages;
+namespace StarsAICopilot.Pages;
 
 public partial class TestPage : Page
 {

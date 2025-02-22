@@ -1,4 +1,4 @@
-<Page x:Class="AuroraChatBot.Pages.SettingsPage"
+<Page x:Class="StarsAICopilot.Pages.SettingsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"

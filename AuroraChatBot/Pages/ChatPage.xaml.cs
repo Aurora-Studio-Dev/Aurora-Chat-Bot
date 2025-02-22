@@ -6,7 +6,7 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 
-namespace AuroraChatBot.Pages;
+namespace StarsAICopilot.Pages;
 
 public partial class ChatPage
 {

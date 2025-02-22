@@ -6,7 +6,7 @@ using iNKORE.UI.WPF.Modern.Controls;
 using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 
 
-namespace AuroraChatBot.Pages;
+namespace StarsAICopilot.Pages;
 
 public partial class SettingsPage : Page
 {

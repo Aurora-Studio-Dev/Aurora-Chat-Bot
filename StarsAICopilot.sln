@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuroraChatBot", "AuroraChatBot\AuroraChatBot.csproj", "{13637C96-FB5D-4078-BBC1-D024A2E014D1}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35507.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarsAICopilot", "AuroraChatBot\StarsAICopilot.csproj", "{13637C96-FB5D-4078-BBC1-D024A2E014D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +15,11 @@ Global
 		{13637C96-FB5D-4078-BBC1-D024A2E014D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13637C96-FB5D-4078-BBC1-D024A2E014D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13637C96-FB5D-4078-BBC1-D024A2E014D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A1B3888-FF7F-4F2F-9B57-2565A07923E4}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@ using Page = System.Windows.Controls.Page;
 using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 using System.Windows;
 
-namespace AuroraChatBot.Pages;
+namespace StarsAICopilot.Pages;
 
 public partial class ToolsPage : Page
 {

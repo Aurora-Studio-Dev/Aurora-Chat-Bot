@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace AuroraChatBot.CS
+namespace StarsAICopilot.CS
 {
     public class HeightConverter : IValueConverter
     {
