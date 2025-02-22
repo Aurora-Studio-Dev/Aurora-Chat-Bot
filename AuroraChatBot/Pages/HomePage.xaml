@@ -11,32 +11,41 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>   
         </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Row="0" Margin="20" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}" FontSize="40"/>
-                <TextBlock Margin="10,0,0,0" FontSize="30" FontWeight="Bold" Text="主页"/>
+        <Border Grid.Row="0"
+                            Background="White"
+                            CornerRadius="8"
+                            Padding="15"
+                            Margin="0,0,0,5"
+                            MinHeight="80">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}" 
+                           FontSize="28"
+                           Foreground="#0078D7"/>
+                <StackPanel Margin="12,0,0,0">
+                    <TextBlock Text="首页" 
+                             FontSize="24" 
+                             FontWeight="SemiBold"
+                             Foreground="#1A1A1A"/>
+                    <TextBlock Text="公告与信息服务。" 
+                             FontSize="14"
+                             Foreground="#666666"/>
+                </StackPanel>
             </StackPanel>
-            <TextBlock Margin="0,5,0,0" FontSize="18" Text="快捷与公告。"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Margin="20" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Border Background="#FFFFFF" CornerRadius="10" Padding="20" Width="300" BorderBrush="#E0E0E0" BorderThickness="1">
-                <StackPanel>
-                    <TextBlock Name="QuoteTextBlock" FontSize="18" TextWrapping="Wrap" FontWeight="Bold" Foreground="#333333"/>
-                    <TextBlock Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Foreground="#777777" Margin="0,10,0,0"/>
-                    <TextBlock Name="OriginTextBlock" FontSize="14" TextWrapping="Wrap" Foreground="#555555" Margin="0,5,0,0"/>
+        </Border>
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="8"
+                Padding="10"
+                Margin="0"
+                MinHeight="60">
+            <Grid>
+                <StackPanel Margin="15">
+                        <TextBlock Name="QuoteTextBlock" FontSize="18" TextWrapping="Wrap" FontWeight="Bold" Foreground="#333333"/>
+                        <TextBlock Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Foreground="#777777" Margin="0,10,0,0"/>
                 </StackPanel>
-            </Border>
-            <Border Background="#FFFFFF" CornerRadius="10" Padding="20" Width="300" Margin="0,20,0,0" BorderBrush="#E0E0E0" BorderThickness="1">
-                <StackPanel>
-                    <TextBlock Name="CityInfoTextBlock" Text="-- --" FontSize="14" TextWrapping="Wrap" Foreground="#333333"/>
-                    <TextBlock Name="WeatherTextBlock" Text="-- --" FontSize="16" TextWrapping="Wrap" Foreground="#333333"/>
-                    <TextBlock Name="TemperatureTextBlock" Text="-- --"  FontSize="16" TextWrapping="Wrap" FontWeight="Bold" Foreground="#FF4500" Margin="0,10,0,0"/>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

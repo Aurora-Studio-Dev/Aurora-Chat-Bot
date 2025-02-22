@@ -18,9 +18,10 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.9.30" />
+      <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0" />
       <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1" />
       <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
+      <PackageReference Include="MdXaml" Version="1.27.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="SharpVectors" Version="1.8.4.2" />
     </ItemGroup>
@@ -28,20 +29,21 @@
     <ItemGroup>
       <None Remove="Fonts\Mooli.ttf" />
       <Resource Include="Fonts\Mooli.ttf" />
-      <None Remove="Image\Icon\TONGYI.svg" />
-      <Resource Include="Image\Icon\TONGYI.svg" />
       <None Remove="Image\Icon\WENXIN.svg" />
-      <Resource Include="Image\Icon\WENXIN.svg" />
       <None Remove="Image\Icon\ZHIPU.svg" />
-      <Resource Include="Image\Icon\ZHIPU.svg" />
       <None Remove="Fonts\YSZW.ttf" />
       <Resource Include="Fonts\YSZW.ttf" />
       <None Remove="Image\Icon\logo.png" />
       <Resource Include="Image\Icon\logo.png" />
+      <None Remove="Image\Icon\deepseek.svg" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Image\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Image\Icon\deepseek.svg" />
     </ItemGroup>
 
 </Project>

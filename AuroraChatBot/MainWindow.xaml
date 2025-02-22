@@ -4,9 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:iconPacks = "http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:AuroraChatBot"
         WindowStartupLocation="CenterScreen"
         UseLayoutRounding="True"
         ui:ThemeManager.IsThemeAware="True"
@@ -15,7 +13,7 @@
         Title="Aurora Star Launcher"
         ui:TitleBar.ExtendViewIntoTitleBar="True"
         ui:TitleBar.IsIconVisible="True"
-        Height="600" 
+        Height="600"    
         Width="900">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,17 +25,16 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Margin="5,-10,0,-10" Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality" Source="./Image/logologo.png" Width="20" Height="20"/>
+            <Image Margin="5,0,0,-3" Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Image/Icon/logo.png" Width="20" Height="20"/>
             <Grid Grid.Column="1" Margin="10,0,0,0" Grid.Row="0" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>        
                 </Grid.ColumnDefinitions>
                 <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="Medium"  Grid.Column="0" Text="Aurora Chat Bot"/>
-                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="SemiBold" Grid.Column="1" Text="Debug v1.0" Foreground="BlueViolet" HorizontalAlignment="Left"/>
+                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="SemiBold" Grid.Column="1" x:Name="AppVersionShow" Foreground="BlueViolet" HorizontalAlignment="Left"/>
             </Grid>
         </Grid>
-        <!-- 导航 -->
         <ui:NavigationView x:Name="NavView" 
                            IsPaneOpen="False"
                            ItemInvoked="NavigationTriggered"
@@ -51,24 +48,14 @@
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="ChatGPT" Tag="AuroraChatBot.Pages.ChatGPTPage" IsSelected="True">
+                <ui:NavigationViewItem Content="聊天" Tag="AuroraChatBot.Pages.ChatPage" IsSelected="True">
                     <ui:NavigationViewItem.Icon>
-                        <iconPacks:PackIconSimpleIcons Height="16" Width="16" Kind="OpenAi" />
+                        <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.ChatBubbles}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="文心" IsEnabled="False" Tag="AuroraChatBot.Pages.WENXINPage" IsSelected="True">
+                <ui:NavigationViewItem Content="工具" Tag="AuroraChatBot.Pages.ToolsPage" IsSelected="True">
                     <ui:NavigationViewItem.Icon>
-                        <svgc:SvgViewbox Width="16" Height="16" IsHitTestVisible="False" Source="pack://application:,,,/Image/Icon/WENXIN.svg"/>
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="通义" IsEnabled="False" Tag="AuroraChatBot.Pages.TONGYIPage" IsSelected="True">
-                    <ui:NavigationViewItem.Icon>
-                        <svgc:SvgViewbox Width="16" Height="16" IsHitTestVisible="False" Source="pack://application:,,,/Image/Icon/TONGYI.svg"/>
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="智谱" IsEnabled="False" Tag="AuroraChatBot.Pages.ZHIPUPage" IsSelected="True">
-                    <ui:NavigationViewItem.Icon>
-                        <svgc:SvgViewbox Width="16" Height="16" IsHitTestVisible="False" Source="pack://application:,,,/Image/Icon/ZHIPU.svg"/>
+                        <iconPacks:PackIconBootstrapIcons Kind="Box" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
@@ -78,7 +65,7 @@
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Help}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="设置" Tag="AuroraChatBot.Pages.SettingsPage">
+                <ui:NavigationViewItem IsEnabled="False" Content="设置" Tag="AuroraChatBot.Pages.SettingsPage">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>

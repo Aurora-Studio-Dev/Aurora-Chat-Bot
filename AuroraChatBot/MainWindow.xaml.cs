@@ -1,10 +1,7 @@
-﻿using System.Windows;
-using iNKORE.UI.WPF.Modern.Media.Animation;
+﻿using iNKORE.UI.WPF.Modern.Media.Animation;
 using iNKORE.UI.WPF.Modern;
 using System.IO;
 using System.Reflection;
-using System.Windows.Controls;
-using iNKORE.UI.WPF.Modern.Controls.Helpers;
 using iNKORE.UI.WPF.Modern.Controls;
 using AuroraChatBot.Pages;  
 using Page = System.Windows.Controls.Page;
@@ -17,10 +14,8 @@ namespace AuroraChatBot;
 public partial class MainWindow
 {
     private Page _home = new HomePage();
-    private Page _chatgpt = new ChatGPTPage();
-    private Page _wenxin = new WENXINPage();
-    private Page _tongyi = new TONGYIPage();
-    private Page _zhipu = new ZHIPUPage();
+    private Page _chat = new ChatPage();
+    private Page _tools = new ToolsPage();
     private Page _helps = new HelpsPage();
     private Page _settings = new SettingsPage();
     private Page _about = new AboutPage();
@@ -30,7 +25,8 @@ public partial class MainWindow
     {
         InitializeComponent();
         cfile();
-        themeSet();
+        AppVersionShow.Text = "Release Version 1.0.1";
+        CurrentPage.Content = new HomePage();
     }
 
     void cfile()
@@ -70,19 +66,10 @@ public partial class MainWindow
         {
 
         }
-
-    }
-
-    void themeSet()
-    {
-        //默认主题
-        ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
-        //默认页面
-        CurrentPage.Content = new HomePage();
     }
 
     /// <summary>
-        ///    Navigation trigger handler.
+    ///    Navigation trigger handler.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -109,17 +96,11 @@ public partial class MainWindow
                 case not null when navPageType == typeof(HomePage):
                     CurrentPage.Navigate(_home);
                     break;
-                case not null when navPageType == typeof(ChatGPTPage):
-                    CurrentPage.Navigate(_chatgpt);
+                case not null when navPageType == typeof(ChatPage):
+                    CurrentPage.Navigate(_chat);
                     break;
-                case not null when navPageType == typeof(WENXINPage):
-                    CurrentPage.Navigate(_wenxin);
-                    break;
-                case not null when navPageType == typeof(TONGYIPage):
-                    CurrentPage.Navigate(_tongyi);
-                    break;
-                case not null when navPageType == typeof(ZHIPUPage):
-                    CurrentPage.Navigate(_zhipu);
+                case not null when navPageType == typeof(ToolsPage):
+                    CurrentPage.Navigate(_tools);
                     break;
                 case not null when navPageType == typeof(HelpsPage):
                     CurrentPage.Navigate(_helps);
@@ -135,6 +116,4 @@ public partial class MainWindow
                     break;
             }
         }
-
-
 }

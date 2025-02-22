@@ -1,0 +1,185 @@
+<Page x:Class="AuroraChatBot.Pages.ChatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AuroraChatBot.Pages"
+      xmlns:md="clr-namespace:MdXaml;assembly=MdXaml"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:conv="clr-namespace:AuroraChatBot.CS"
+      mc:Ignorable="d"
+      Title="ChatPage"
+      d:DataContext="{d:DesignInstance local:ChatPage}"
+      Background="#FAFAFA"
+      SizeChanged="Page_SizeChanged">
+
+    <Page.Resources>
+        <conv:HeightConverter x:Key="HeightConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- 头部 -->
+            <RowDefinition Height="*"/>     <!-- 聊天区域 -->
+            <RowDefinition Height="Auto"/>  <!-- 输入区域 -->
+        </Grid.RowDefinitions>
+        <!-- 头部区域 -->
+        <Border Grid.Row="0"
+                            Background="White"
+                            CornerRadius="8"
+                            Padding="15"
+                            Margin="0,0,0,5"
+                            MinHeight="80">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.ChatBubbles}" 
+                           FontSize="28"
+                           Foreground="#0078D7"/>
+                <StackPanel Margin="12,0,0,0">
+                    <TextBlock Text="聊天" 
+                             FontSize="24" 
+                             FontWeight="SemiBold"
+                             Foreground="#1A1A1A"/>
+                    <TextBlock Text="与 OpenAI 的 GPT 模型聊天对话。" 
+                             FontSize="14"
+                             Foreground="#666666"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <!-- 聊天记录区域 -->
+        <Border Grid.Row="1" Margin="0,0,0,5"
+                 Background="White"
+                 CornerRadius="8"
+                 Padding="15"
+                 MinHeight="300"
+                 VerticalAlignment="Stretch"
+                 MaxHeight="{Binding ActualHeight, 
+                            RelativeSource={RelativeSource AncestorType=Page}, 
+                            Converter={StaticResource HeightConverter}}">
+            <ListBox x:Name="ChatHistory" 
+                     ItemsSource="{Binding Messages}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.CanContentScroll="True"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     VirtualizingPanel.IsVirtualizing="True">
+                
+                <ListBox.Resources>
+                    <ContextMenu x:Key="CopyMenu">
+                        <MenuItem Header="复制" 
+                                Command="{Binding CopyMessageCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Content}"/>
+                    </ContextMenu>
+                </ListBox.Resources>
+                <ListBox.InputBindings>
+                    <KeyBinding Key="C" 
+                                Modifiers="Control" 
+                                Command="{Binding CopyMessageCommand}"
+                                CommandParameter="{Binding SelectedItem, ElementName=ChatHistory}"/>
+                </ListBox.InputBindings>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Margin" Value="5,8"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="ContextMenu" Value="{StaticResource CopyMenu}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Grid>
+                                        <!--
+                                        <Border x:Name="SelectionBorder"
+                                                BorderBrush="#E0E0E0"
+                                                BorderThickness="1"
+                                                CornerRadius="12"
+                                                Visibility="Collapsed"/>
+                                                -->
+                                        <ContentPresenter/>
+                                    </Grid>
+                                    <!--
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="SelectionBorder" 
+                                                    Property="Visibility" 
+                                                    Value="Visible"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                    -->
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="MessageBorder"
+                                CornerRadius="12"
+                                Padding="15"
+                                HorizontalAlignment="Right"
+                                Background="#E3F2FD"
+                                MaxWidth="600">
+                            <!--
+                            <TextBlock Text="{Binding Content}" 
+                                       FontSize="15"
+                                       LineHeight="22"
+                                       Foreground="#1A237E"
+                                       TextWrapping="Wrap"/>
+                                       -->
+                            <md:MarkdownScrollViewer FontSize="15" 
+                                                     FontFamily="{StaticResource Mooli}"
+                                                     Foreground="#1A237E"
+                                                     Markdown="{Binding Content}"/>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Sender}" Value="Assistant">
+                                <Setter TargetName="MessageBorder" Property="Background" Value="#F5F5F5" />
+                                <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Left" />
+                                <Setter TargetName="MessageBorder" Property="TextBlock.Foreground" Value="#212121" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel VirtualizingPanel.IsVirtualizing="True" 
+                                              VirtualizingPanel.VirtualizationMode="Recycling"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Border>
+        <!-- 输入区域 -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="8"
+                Padding="10"
+                Margin="0"
+                MinHeight="60">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MinWidth="200"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox x:Name="UserInput"
+                         Grid.Column="0"
+                         Margin="0,0,10,0"
+                         VerticalContentAlignment="Center"
+                         FontSize="16"
+                         MinHeight="35"/>
+                
+                <Button x:Name="SendButton"
+                        Grid.Column="1"
+                        Width="80"
+                        MinHeight="35"
+                        FontSize="16" 
+                        Content="发送"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Click="SendButton_Click"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,357 @@
+<Project>
+  <PropertyGroup>
+    <AssemblyName>AuroraChatBot</AssemblyName>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>D:\Projects\AuroraChatBot\AuroraChatBot\obj\</MSBuildProjectExtensionsPath>
+    <_TargetAssemblyProjectName>AuroraChatBot</_TargetAssemblyProjectName>
+    <RootNamespace>AuroraChatBot</RootNamespace>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Company>Aurora Studio (THZ)</Company>
+    <AssemblyVersion>
+    </AssemblyVersion>
+    <FileVersion>
+    </FileVersion>
+    <ApplicationIcon>Image\Icon\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Betalgo.OpenAI" Version="8.7.2" />
+    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1" />
+    <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
+    <PackageReference Include="MdXaml" Version="1.27.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpVectors" Version="1.8.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\Mooli.ttf" />
+    <None Remove="Image\Icon\WENXIN.svg" />
+    <None Remove="Image\Icon\ZHIPU.svg" />
+    <None Remove="Fonts\YSZW.ttf" />
+    <None Remove="Image\Icon\logo.png" />
+    <None Remove="Image\Icon\deepseek.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Icon\deepseek.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\Accessibility.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\avalonedit\6.3.0.90\lib\net7.0-windows7.0\ICSharpCode.AvalonEdit.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\inkore.ui.wpf\1.2.8\lib\net6.0-windows7.0\iNKORE.UI.WPF.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\inkore.ui.wpf.modern\0.10.0\lib\net6.0-windows7.0\iNKORE.UI.WPF.Modern.Controls.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\inkore.ui.wpf.modern\0.10.0\lib\net6.0-windows7.0\iNKORE.UI.WPF.Modern.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.bootstrapicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.BootstrapIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.boxicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.BoxIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.circumicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.CircumIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.codicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Codicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.coolicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Coolicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.core\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Core.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.entypo\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Entypo.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.evaicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.EvaIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.feathericons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.FeatherIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.fileicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.FileIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.fontaudio\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Fontaudio.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.fontawesome\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.FontAwesome.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.fontisto\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Fontisto.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.forkawesome\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.ForkAwesome.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.gameicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.GameIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.ionicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Ionicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.jamicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.JamIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.lucide\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Lucide.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.material\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Material.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.materialdesign\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.MaterialDesign.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.materiallight\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.MaterialLight.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.memoryicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.MemoryIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.microns\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Microns.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.modern\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Modern.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.octicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Octicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.phosphoricons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.PhosphorIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.picolicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.PicolIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.pixelarticons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.PixelartIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.radixicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.RadixIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.remixicon\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.RemixIcon.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.rpgawesome\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.RPGAwesome.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.simpleicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.SimpleIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.typicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Typicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.unicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Unicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.vaadinicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.VaadinIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.weathericons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.WeatherIcons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mahapps.metro.iconpacks.zondicons\5.0.1\lib\net8.0-windows7.0\MahApps.Metro.IconPacks.Zondicons.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\markdig\0.22.0\lib\netcoreapp3.1\Markdig.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\markdig.wpf\0.5.0.1\lib\net5.0-windows7.0\Markdig.Wpf.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mdxaml\1.27.0\lib\net6.0-windows7.0\MdXaml.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\mdxaml.plugins\1.27.0\lib\net6.0-windows7.0\MdXaml.Plugins.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration.binder\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Binder.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.dependencyinjection\8.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.diagnostics.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.diagnostics\8.0.0\lib\net8.0\Microsoft.Extensions.Diagnostics.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.http\8.0.0\lib\net8.0\Microsoft.Extensions.Http.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.logging.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.logging\8.0.0\lib\net8.0\Microsoft.Extensions.Logging.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.options.configurationextensions\8.0.0\lib\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.options\8.0.0\lib\net8.0\Microsoft.Extensions.Options.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.primitives\8.0.0\lib\net8.0\Microsoft.Extensions.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\Microsoft.VisualBasic.Core.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\Microsoft.VisualBasic.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\Microsoft.VisualBasic.Forms.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\Microsoft.Win32.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\Microsoft.Win32.Registry.AccessControl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\Microsoft.Win32.Registry.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\Microsoft.Win32.SystemEvents.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\netstandard.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.3\lib\net6.0\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\betalgo.openai\8.7.2\lib\net8.0\OpenAI.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationCore.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.Aero.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.Aero2.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.AeroLite.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.Classic.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.Luna.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationFramework.Royale.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\PresentationUI.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\ReachFramework.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Converters.Wpf.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Core.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Css.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Dom.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Model.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Rendering.Gdi.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Rendering.Wpf.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\sharpvectors\1.8.4.2\lib\net8.0-windows7.0\SharpVectors.Runtime.Wpf.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.AppContext.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Buffers.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.CodeDom.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Collections.Concurrent.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Collections.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Collections.Immutable.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Collections.NonGeneric.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Collections.Specialized.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.EventBasedAsync.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ComponentModel.TypeConverter.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Configuration.ConfigurationManager.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Configuration.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Console.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Core.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Data.Common.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Data.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Design.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.Contracts.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.Debug.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.DiagnosticSource.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Diagnostics.EventLog.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.FileVersionInfo.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Diagnostics.PerformanceCounter.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.Process.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.StackTrace.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.TextWriterTraceListener.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.Tools.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.TraceSource.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Diagnostics.Tracing.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.DirectoryServices.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Drawing.Common.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Drawing.Design.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Drawing.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Drawing.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Dynamic.Runtime.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Formats.Asn1.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Formats.Tar.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Globalization.Calendars.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Globalization.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Globalization.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Compression.Brotli.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Compression.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Compression.FileSystem.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Compression.ZipFile.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.FileSystem.AccessControl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.FileSystem.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.FileSystem.DriveInfo.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.FileSystem.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.FileSystem.Watcher.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.IsolatedStorage.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.MemoryMappedFiles.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.IO.Packaging.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Pipes.AccessControl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.Pipes.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.IO.UnmanagedMemoryStream.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Linq.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Linq.Expressions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Linq.Parallel.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Linq.Queryable.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Memory.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Http.Json.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.HttpListener.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Mail.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.NameResolution.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.NetworkInformation.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Ping.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Quic.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Requests.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Security.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.ServicePoint.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.Sockets.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.WebClient.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.WebHeaderCollection.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.WebProxy.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.WebSockets.Client.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Net.WebSockets.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Numerics.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Numerics.Vectors.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ObjectModel.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Printing.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.DispatchProxy.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Emit.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Emit.ILGeneration.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Emit.Lightweight.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Metadata.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Reflection.TypeExtensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Resources.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Resources.Reader.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Resources.ResourceManager.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Resources.Writer.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.CompilerServices.VisualC.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Handles.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.InteropServices.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.InteropServices.JavaScript.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Intrinsics.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Loader.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Numerics.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Serialization.Formatters.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Serialization.Json.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Serialization.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Runtime.Serialization.Xml.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.AccessControl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Claims.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Algorithms.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Cng.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Csp.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Encoding.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.OpenSsl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Pkcs.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.ProtectedData.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.X509Certificates.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Security.Cryptography.Xml.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Security.Permissions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Principal.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.Principal.Windows.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Security.SecureString.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ServiceModel.Web.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ServiceProcess.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.Encoding.CodePages.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.Encoding.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.Encoding.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.Encodings.Web.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.Json.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Text.RegularExpressions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Threading.AccessControl.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Channels.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Overlapped.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Tasks.Dataflow.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Tasks.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Tasks.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Tasks.Parallel.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Thread.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.ThreadPool.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Threading.Timer.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Transactions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Transactions.Local.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Web.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Web.HttpUtility.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Controls.Ribbon.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Windows.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Forms.Design.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Forms.Design.Editors.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Forms.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Forms.Primitives.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Input.Manipulations.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Windows.Presentation.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\System.Xaml.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.ReaderWriter.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.Serialization.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.XDocument.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.XmlDocument.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.XmlSerializer.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.XPath.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\ref\net8.0\System.Xml.XPath.XDocument.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\UIAutomationClient.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\UIAutomationClientSideProviders.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\WindowsBase.dll" />
+    <ReferencePath Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\ref\net8.0\WindowsFormsIntegration.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\MainWindow.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\AboutPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\ChatPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\HelpsPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\HomePage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\SettingsPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\TestPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\Pages\ToolsPage.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\App.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\AuroraChatBot_Content.g.cs" />
+    <Compile Include="D:\Projects\AuroraChatBot\AuroraChatBot\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files\dotnet\sdk\9.0.102\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
+    <Analyzer Include="C:\Program Files\dotnet\sdk\9.0.102\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.logging.abstractions\8.0.0\analyzers\dotnet\roslyn4.4\cs\Microsoft.Extensions.Logging.Generators.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.options\8.0.0\analyzers\dotnet\roslyn4.4\cs\Microsoft.Extensions.Options.SourceGeneration.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/Microsoft.Interop.ComInterfaceGenerator.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/Microsoft.Interop.JavaScript.JSImportGenerator.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/Microsoft.Interop.LibraryImportGenerator.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/Microsoft.Interop.SourceGeneration.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/System.Text.Json.SourceGeneration.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.netcore.app.ref\8.0.12\analyzers/dotnet/cs/System.Text.RegularExpressions.Generator.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\analyzers/dotnet/System.Windows.Forms.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Administrator\.nuget\packages\microsoft.windowsdesktop.app.ref\8.0.12\analyzers/dotnet/cs/System.Windows.Forms.Analyzers.CSharp.dll" />
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+</Project>

@@ -1,42 +1,55 @@
 using System.IO;
 using System.Text.Json;
 using Page = System.Windows.Controls.Page;
+using iNKORE.UI.WPF.Modern;
+using iNKORE.UI.WPF.Modern.Controls;
+using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
+
 
 namespace AuroraChatBot.Pages;
 
 public partial class SettingsPage : Page
 {
-    public static string OPEN_API_KEY { get; set; }
-    public static string OPEN_API_URL { get; set; }
+    public static string DEEPSEEK_API_KEY { get; set; }
+    public static string DEEPSEEK_API_URL { get; set; }
     private readonly string configFilePath = Path.Combine(Directory.GetCurrentDirectory(), "acb", "api_config.json");
 
     public SettingsPage()
     {
         InitializeComponent();
-        LoadSettings(); // 每次启动时加载设置
+        LoadSettings();
+        SettingsTheme();
     }
 
-    void DefaultSettings()
+    void SettingsTheme()
     {
-        SetTheme_ComboBox.SelectedIndex = 0;
+        switch (SetTheme_ComboBox.SelectedIndex)
+        {
+            case 0:
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                break;
+            case 1:
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+                break;
+            default:
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                break;
+        }
     }
-
     void LoadSettings()
     {
         if (File.Exists(configFilePath))
         {
             var json = File.ReadAllText(configFilePath);
             var config = JsonSerializer.Deserialize<ApiConfig>(json);
-            OPEN_API_KEY = config?.ApiKey;
-            OPEN_API_URL = config?.ApiUrl;
+            DEEPSEEK_API_KEY = config?.DsApiKey;
+            DEEPSEEK_API_URL = config?.DsApiUrl;
 
-            OPENAPIURL.Text = OPEN_API_URL;
-            OPENAPIKEY.Password = OPEN_API_KEY;
+            DSAPIURL.Text = DEEPSEEK_API_URL;
+            DSAPIKEY.Password = DEEPSEEK_API_URL;
         }
         else
         {
-            // 如果文件不存在，可以处理默认设置
-            DefaultSettings();
         }
     }
 
@@ -44,8 +57,8 @@ public partial class SettingsPage : Page
     {
         var config = new ApiConfig
         {
-            ApiKey = OPEN_API_KEY,
-            ApiUrl = OPEN_API_URL
+            DsApiKey = DEEPSEEK_API_KEY,
+            DsApiUrl = DEEPSEEK_API_URL
         };
 
         var json = JsonSerializer.Serialize(config);
@@ -56,7 +69,7 @@ public partial class SettingsPage : Page
     // 用于序列化和反序列化的类
     private class ApiConfig
     {
-        public string ApiKey { get; set; }
-        public string ApiUrl { get; set; }
+        public string DsApiKey { get; set; }
+        public string DsApiUrl { get; set; }
     }
 }
