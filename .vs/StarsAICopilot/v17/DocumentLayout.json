@@ -1,12 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\AuroraChatBot\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|AuroraChatBot\\StarsAICopilot.csproj|d:\\projects\\aurorachatbot\\aurorachatbot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|AuroraChatBot\\StarsAICopilot.csproj|solutionrelative:aurorachatbot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\Projects\\StarsAICopilot\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -23,19 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d375ef0d-9946-4920-bae8-e432ebc42c55}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Projects\\AuroraChatBot\\AuroraChatBot\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AuroraChatBot\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Projects\\AuroraChatBot\\AuroraChatBot\\MainWindow.xaml.cs",
-              "RelativeToolTip": "AuroraChatBot\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAmwBsAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T14:30:43.491Z",
-              "EditorCaption": ""
             }
           ]
         }
