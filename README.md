@@ -1,9 +1,9 @@
 <h1 align="center">
 <img src="https://img.picui.cn/free/2025/01/18/678b2a5349765.png" alt="logo-TM.png" title="logo-TM.png" />
 <br/>
-Aurora Chat Bot
+Stars AI Copilot
 </h1>
-<p align="center">不仅仅可以聊天</p>
+<p align="center">你的 AI 助理</p>
   
 [![](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/main.yml/badge.svg)](https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot/actions/workflows/main.yml)
 ![](https://img.shields.io/badge/许可证-GPL3.0-blue)
