@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using StarsAICopilot.CS;
 
 namespace StarsAICopilot.Pages;
 
@@ -12,16 +13,19 @@ public partial class ChatPage
 {
     public class ChatMessage
     {
-        public string Content { get; init; }
-        public string Sender { get; init; }
+        public required string Content { get; init; }
+        public required string Sender { get; init; }
     }
 
     private const string UserRole = "User";
     private const string AssistantRole = "Assistant";
-    private static readonly HttpClient httpClient = new();
+    private static readonly HttpClient HttpClient = new();
     
-    private readonly string OpenAIApiKey = "sk-fR7Ho6pRPuXrDpkNK1VKJWzrctdGz1Z453jUYREpQz7c4kO3";
-    private readonly string OpenAIApiUrl = "https://api.chatanywhere.tech/v1/chat/completions";
+    //private readonly string OpenAIApiKey = "sk-";
+    //private readonly string OpenAIApiUrl = "https://api.chatanywhere.tech/v1/chat/completions";
+
+    private readonly string _apikey = ConfigHelper.CurrentConfig.ApiKey;
+    private readonly string _apiurl = ConfigHelper.CurrentConfig.ApiUrl;
 
     public ObservableCollection<ChatMessage> Messages { get; } = new();
 
@@ -34,15 +38,6 @@ public partial class ChatPage
     private async void SendButton_Click(object sender, RoutedEventArgs e)
     {
         await ProcessUserInputAsync();
-    }
-
-    private async void OnUserInputKeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter && Keyboard.Modifiers != ModifierKeys.Shift)
-        {
-            await ProcessUserInputAsync();
-            e.Handled = true;
-        }
     }
     private async Task ProcessUserInputAsync()
     {
@@ -79,7 +74,7 @@ public partial class ChatPage
         try
         {
             using var request = CreateApiRequest();
-            using var response = await httpClient.SendAsync(request);
+            using var response = await HttpClient.SendAsync(request);
             
             if (!response.IsSuccessStatusCode)
             {
@@ -111,7 +106,7 @@ public partial class ChatPage
             temperature = 0.7
         };
 
-        var request = new HttpRequestMessage(HttpMethod.Post, OpenAIApiUrl)
+        var request = new HttpRequestMessage(HttpMethod.Post, _apiurl)
         {
             Content = new StringContent(
                 JsonConvert.SerializeObject(requestBody),
@@ -119,7 +114,7 @@ public partial class ChatPage
                 "application/json")
         };
 
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", OpenAIApiKey);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apikey);
         return request;
     }
 

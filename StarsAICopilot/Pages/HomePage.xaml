@@ -14,36 +14,30 @@
             <RowDefinition Height="Auto"/>   
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                            Background="White"
-                            CornerRadius="8"
-                            Padding="15"
                             Margin="0,0,0,5"
-                            MinHeight="80">
+                            MinHeight="60">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}" 
-                           FontSize="28"
-                           Foreground="#0078D7"/>
+                           FontSize="28"/>
                 <StackPanel Margin="12,0,0,0">
                     <TextBlock Text="首页" 
                              FontSize="24" 
-                             FontWeight="SemiBold"
-                             Foreground="#1A1A1A"/>
+                             FontWeight="SemiBold"/>
                     <TextBlock Text="公告与信息服务。" 
-                             FontSize="14"
-                             Foreground="#666666"/>
+                             FontSize="14"/>
                 </StackPanel>
             </StackPanel>
         </Border>
         <Border Grid.Row="1"
-                Background="White"
                 CornerRadius="8"
                 Padding="10"
                 Margin="0"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
                 MinHeight="60">
             <Grid>
                 <StackPanel Margin="15">
-                        <TextBlock Name="QuoteTextBlock" FontSize="18" TextWrapping="Wrap" FontWeight="Bold" Foreground="#333333"/>
-                        <TextBlock Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Foreground="#777777" Margin="0,10,0,0"/>
+                        <TextBlock FontFamily="{StaticResource Mooli}" Name="QuoteTextBlock" FontSize="18" TextWrapping="Wrap" FontWeight="Bold" />
+                        <TextBlock FontFamily="{StaticResource Mooli}" Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Margin="0,10,0,0"/>
                 </StackPanel>
             </Grid>
         </Border>

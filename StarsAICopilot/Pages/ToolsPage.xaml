@@ -14,37 +14,32 @@
             <RowDefinition Height="Auto"/>   
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                Background="White"
-                CornerRadius="8"
-                Padding="15"
                 Margin="0,0,0,5"
-                MinHeight="80">
+                MinHeight="60">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <iconPacks:PackIconBootstrapIcons Kind="Box"
                                                   Margin="0,10,0,0"
                                                   Width="28" 
-                                                  Height="28"
-                                                  Foreground="#0078D7"/>
+                                                  Height="28"/>
                 <StackPanel Margin="12,0,0,0">
                     <TextBlock Text="工具" 
                                FontSize="24" 
-                               FontWeight="SemiBold"
-                               Foreground="#1A1A1A"/>
+                               FontWeight="SemiBold"/>
                     <TextBlock Text="实用工具。" 
                                FontSize="14"
-                               Foreground="#666666"/>
+                               />
                 </StackPanel>
             </StackPanel>
         </Border>
         <Border Grid.Row="1"
-                Background="White"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
                 CornerRadius="8"
                 Padding="10"
                 Margin="0"
                 MinHeight="60">
             <StackPanel>
                 <StackPanel Margin="15,10,0,0">
-                    <TextBlock Text="选择一个工具……" FontSize="18" TextWrapping="Wrap" FontWeight="Bold" Foreground="#333333"/><TextBlock Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Foreground="#777777" Margin="0,10,0,0"/>
+                    <TextBlock Text="选择一个工具……" FontSize="18" TextWrapping="Wrap" FontWeight="Bold"/><TextBlock Name="AuthorTextBlock" FontSize="16" TextWrapping="Wrap" FontStyle="Italic" Foreground="#777777" Margin="0,10,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="15,10">
                     <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Style="{StaticResource SettingsCard}">

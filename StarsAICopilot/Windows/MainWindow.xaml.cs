@@ -1,10 +1,11 @@
 ﻿using iNKORE.UI.WPF.Modern.Media.Animation;
-using iNKORE.UI.WPF.Modern;
 using System.IO;
 using System.Reflection;
+using iNKORE.UI.WPF.Modern;
 using iNKORE.UI.WPF.Modern.Controls;
 using StarsAICopilot.Pages;  
 using Page = System.Windows.Controls.Page;
+using StarsAICopilot.CS;
 
 namespace StarsAICopilot;
 
@@ -16,17 +17,29 @@ public partial class MainWindow
     private Page _home = new HomePage();
     private Page _chat = new ChatPage();
     private Page _tools = new ToolsPage();
-    private Page _helps = new HelpsPage();
     private Page _settings = new SettingsPage();
     private Page _about = new AboutPage();
     private Page _test = new TestPage();
-
+    
+    private const string DefaultTheme = "Light";
+    
     public MainWindow()
     {
         InitializeComponent();
+        CurrentPage.Navigate(_home);
         cfile();
         AppVersionShow.Text = "Release Version 1.0.1";
-        CurrentPage.Content = new HomePage();
+        SettingTheme();
+    }
+
+    void SettingTheme()
+    {
+        var theme = ConfigHelper.CurrentConfig.Theme ?? DefaultTheme;
+        ThemeManager.Current.ApplicationTheme = theme switch
+        {
+            "Dark" => ApplicationTheme.Dark,
+            _      => ApplicationTheme.Light 
+        };
     }
 
     void cfile()
@@ -75,10 +88,17 @@ public partial class MainWindow
         private void NavigationTriggered(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
             if (args.IsSettingsInvoked)
-                NavigateTo(typeof(int), args.RecommendedNavigationTransitionInfo);
-            else if (args.InvokedItemContainer != null)
-                NavigateTo(Type.GetType(args.InvokedItemContainer.Tag.ToString()),
-                    args.RecommendedNavigationTransitionInfo);
+            {
+                NavigateTo(typeof(SettingsPage), args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.InvokedItemContainer?.Tag != null)
+            {
+                var pageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
+                if (pageType != null)
+                {
+                    NavigateTo(pageType, args.RecommendedNavigationTransitionInfo);
+                }
+            }
         }
 
         /// <summary>
@@ -88,31 +108,25 @@ public partial class MainWindow
         /// <param name="transitionInfo">Transition animation.</param>
         private void NavigateTo(Type navPageType, NavigationTransitionInfo transitionInfo)
         {
+            // 空值保护
+            if (CurrentPage?.Content == null || navPageType == null) return;
+
             var preNavPageType = CurrentPage.Content.GetType();
             if (navPageType == preNavPageType) return;
-            switch (navPageType)
+            
+            var pageMapping = new Dictionary<Type, Page>
             {
-                case not null when navPageType == typeof(HomePage):
-                    CurrentPage.Navigate(_home);
-                    break;
-                case not null when navPageType == typeof(ChatPage):
-                    CurrentPage.Navigate(_chat);
-                    break;
-                case not null when navPageType == typeof(ToolsPage):
-                    CurrentPage.Navigate(_tools);
-                    break;
-                case not null when navPageType == typeof(HelpsPage):
-                    CurrentPage.Navigate(_helps);
-                    break;
-                case not null when navPageType == typeof(SettingsPage):
-                    CurrentPage.Navigate(_settings);
-                    break;
-                case not null when navPageType == typeof(AboutPage):
-                    CurrentPage.Navigate(_about);
-                    break;
-                case not null when navPageType == typeof(TestPage):
-                    CurrentPage.Navigate(_test);
-                    break;
+                { typeof(HomePage), _home },
+                { typeof(ChatPage), _chat },
+                { typeof(ToolsPage), _tools },
+                { typeof(SettingsPage), _settings },
+                { typeof(AboutPage), _about },
+                { typeof(TestPage), _test }
+            };
+
+            if (pageMapping.TryGetValue(navPageType, out var targetPage))
+            {
+                CurrentPage.Navigate(targetPage, transitionInfo);
             }
         }
 }

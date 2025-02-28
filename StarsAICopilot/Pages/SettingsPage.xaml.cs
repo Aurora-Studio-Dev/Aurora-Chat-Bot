@@ -1,75 +1,87 @@
-using System.IO;
-using System.Text.Json;
-using Page = System.Windows.Controls.Page;
+using System.Windows;
 using iNKORE.UI.WPF.Modern;
-using iNKORE.UI.WPF.Modern.Controls;
 using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
-
+using StarsAICopilot.CS;
 
 namespace StarsAICopilot.Pages;
 
-public partial class SettingsPage : Page
+public partial class SettingsPage
 {
-    public static string DEEPSEEK_API_KEY { get; set; }
-    public static string DEEPSEEK_API_URL { get; set; }
-    private readonly string configFilePath = Path.Combine(Directory.GetCurrentDirectory(), "acb", "api_config.json");
-
     public SettingsPage()
     {
         InitializeComponent();
         LoadSettings();
-        SettingsTheme();
+    }
+    private void LoadSettings()
+    {
+        ApiUrl.Text = ConfigHelper.CurrentConfig.ApiUrl;
+        ApiKey.Password = ConfigHelper.CurrentConfig.ApiKey;
+        Mod.Text = ConfigHelper.CurrentConfig.Mod;
     }
 
-    void SettingsTheme()
+    private void SaveApi()
     {
-        switch (SetTheme_ComboBox.SelectedIndex)
+        ConfigHelper.CurrentConfig.ApiUrl = ApiUrl.Text;
+        ConfigHelper.CurrentConfig.ApiKey = ApiKey.Password;
+        ConfigHelper.CurrentConfig.Mod = Mod.Text;
+        ConfigHelper.SaveConfig();
+    }
+    
+
+    private void ThemeDark_OnChecked(object sender, RoutedEventArgs e)
+    {
+        try
         {
-            case 0:
-                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
-                break;
-            case 1:
-                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
-                break;
-            default:
-                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
-                break;
+            ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+            ThemeLight.IsChecked = false;
+            ConfigHelper.CurrentConfig.Theme = "Dark";
+            ConfigHelper.SaveConfig();
+        }
+        catch
+        {
+            
         }
     }
-    void LoadSettings()
+    private void ThemeLight_OnChecked(object sender, RoutedEventArgs e)
     {
-        if (File.Exists(configFilePath))
+        try
         {
-            var json = File.ReadAllText(configFilePath);
-            var config = JsonSerializer.Deserialize<ApiConfig>(json);
-            DEEPSEEK_API_KEY = config?.DsApiKey;
-            DEEPSEEK_API_URL = config?.DsApiUrl;
-
-            DSAPIURL.Text = DEEPSEEK_API_URL;
-            DSAPIKEY.Password = DEEPSEEK_API_URL;
+            ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+            ThemeDark.IsChecked = false;
+            ConfigHelper.CurrentConfig.Theme = "Light";
+            ConfigHelper.SaveConfig();
         }
-        else
+        catch
         {
+            
         }
     }
 
-    void SaveSettings()
+    private void SaveApi(object sender, RoutedEventArgs e)
     {
-        var config = new ApiConfig
+        if (string.IsNullOrWhiteSpace(ApiKey.Password) || string.IsNullOrWhiteSpace(Mod.Text))
         {
-            DsApiKey = DEEPSEEK_API_KEY,
-            DsApiUrl = DEEPSEEK_API_URL
-        };
+            MessageBox.Show("API 秘钥和模型不能为空！", // 提示语同步修改
+                "Stars AI Copilot - 设置", 
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            return;
+        }
 
-        var json = JsonSerializer.Serialize(config);
-        Directory.CreateDirectory(Path.GetDirectoryName(configFilePath)); // 确保目录存在
-        File.WriteAllText(configFilePath, json);
-    }
+        // 补充 URL 格式验证
+        if (string.IsNullOrWhiteSpace(ApiUrl.Text) || !Uri.IsWellFormedUriString(ApiUrl.Text, UriKind.Absolute))
+        {
+            ApiUrl.Text = "https://api.openai.com/v1/chat/completions";
+        }
 
-    // 用于序列化和反序列化的类
-    private class ApiConfig
-    {
-        public string DsApiKey { get; set; }
-        public string DsApiUrl { get; set; }
+        var result = MessageBox.Show("是否保存 API 设置？",
+            "Stars AI Copilot - 设置", 
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Question);
+
+        if (result == MessageBoxResult.Yes)
+        {
+            SaveApi();
+        }
     }
 }

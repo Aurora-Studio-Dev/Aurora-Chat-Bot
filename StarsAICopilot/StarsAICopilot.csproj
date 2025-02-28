@@ -13,17 +13,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Betalgo.OpenAI" Version="8.7.2" />
-      <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
       <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0" />
       <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1" />
-      <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
       <PackageReference Include="MdXaml" Version="1.27.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-      <PackageReference Include="SharpVectors" Version="1.8.4.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -40,10 +33,19 @@
 
     <ItemGroup>
       <Folder Include="Image\" />
+      <Folder Include="Language\" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Include="Image\Icon\deepseek.svg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Windows\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
 </Project>

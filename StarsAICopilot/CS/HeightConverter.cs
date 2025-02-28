@@ -10,7 +10,7 @@ namespace StarsAICopilot.CS
             if (value is double totalHeight && totalHeight > 0)
             {
                 // 减去底部输入区域预估高度（根据实际布局调整偏移量）
-                return totalHeight - 250; // 250为底部区域+margin的估算值
+                return totalHeight - 100; // 250为底部区域+margin的估算值
             }
             return 600;
         }

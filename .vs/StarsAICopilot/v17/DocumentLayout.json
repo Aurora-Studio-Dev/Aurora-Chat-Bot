@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\StarsAICopilot\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\Projects\\Stars-AI-Copilot\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|StarsAICopilot\\StarsAICopilot.csproj|d:\\projects\\stars-ai-copilot\\starsaicopilot\\pages\\settingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|StarsAICopilot\\StarsAICopilot.csproj|solutionrelative:starsaicopilot\\pages\\settingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|StarsAICopilot\\StarsAICopilot.csproj|d:\\projects\\stars-ai-copilot\\starsaicopilot\\windows\\tools\\translatetools.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{13637C96-FB5D-4078-BBC1-D024A2E014D1}|StarsAICopilot\\StarsAICopilot.csproj|solutionrelative:starsaicopilot\\windows\\tools\\translatetools.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +18,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 12,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{d375ef0d-9946-4920-bae8-e432ebc42c55}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TranslateTools.xaml",
+              "DocumentMoniker": "D:\\Projects\\Stars-AI-Copilot\\StarsAICopilot\\Windows\\Tools\\TranslateTools.xaml",
+              "RelativeDocumentMoniker": "StarsAICopilot\\Windows\\Tools\\TranslateTools.xaml",
+              "ToolTip": "D:\\Projects\\Stars-AI-Copilot\\StarsAICopilot\\Windows\\Tools\\TranslateTools.xaml",
+              "RelativeToolTip": "StarsAICopilot\\Windows\\Tools\\TranslateTools.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-23T04:11:11.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingsPage.xaml",
+              "DocumentMoniker": "D:\\Projects\\Stars-AI-Copilot\\StarsAICopilot\\Pages\\SettingsPage.xaml",
+              "RelativeDocumentMoniker": "StarsAICopilot\\Pages\\SettingsPage.xaml",
+              "ToolTip": "D:\\Projects\\Stars-AI-Copilot\\StarsAICopilot\\Pages\\SettingsPage.xaml",
+              "RelativeToolTip": "StarsAICopilot\\Pages\\SettingsPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-23T06:43:44.7Z",
+              "EditorCaption": ""
             }
           ]
         }

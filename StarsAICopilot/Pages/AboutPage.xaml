@@ -4,21 +4,68 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:StarsAICopilot.Pages"
-      xmlns:modern="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       mc:Ignorable="d"
       Title="AboutPage">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>   
         </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Row="0" Margin="20" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <modern:FontIcon Icon="{x:Static modern:SegoeFluentIcons.Info}" FontSize="40"/>
-                <TextBlock Margin="10,0,0,0" FontSize="30" FontWeight="Bold" Text="关于"/> 
+        <Border Grid.Row="0"
+                Margin="0,0,0,5"
+                MinHeight="60">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}" 
+                             FontSize="28"/>
+                <StackPanel Margin="12,0,0,0">
+                    <TextBlock Text="关于" 
+                               FontSize="24" 
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="关于应用程序。" 
+                               FontSize="14"/>
+                </StackPanel>
             </StackPanel>
-            <TextBlock Margin="0,5,0,0" FontSize="18" Text="关于信息，版权与其他。"/> 
-        </StackPanel>
+        </Border>
+        <ui:SettingsExpander Grid.Row="1" Header="使用的包与项目">
+            <ui:SettingsExpander.Items>
+                <ui:SettingsCard>
+                    <ui:SettingsCard.Header>
+                        <StackPanel>
+                            <TextBlock Text="iNKORE.UI.WPF.Modern"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock Text="iNKORE Studio" Foreground="BlueViolet"/>
+                        </StackPanel>
+                    </ui:SettingsCard.Header>
+                </ui:SettingsCard>
+                <ui:SettingsCard>
+                    <ui:SettingsCard.Header>
+                        <StackPanel>
+                            <TextBlock Text="MahApps.Metro.IconPacks"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock Text="punker76" Foreground="BlueViolet"/>
+                        </StackPanel>
+                    </ui:SettingsCard.Header>
+                </ui:SettingsCard>
+                <ui:SettingsCard>
+                    <ui:SettingsCard.Header>
+                        <StackPanel>
+                            <TextBlock Text="MdXaml"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock Text="whistyun" Foreground="BlueViolet"/>
+                        </StackPanel>
+                    </ui:SettingsCard.Header>
+                </ui:SettingsCard>
+                <ui:SettingsCard>
+                    <ui:SettingsCard.Header>
+                        <StackPanel>
+                            <TextBlock Text="MdXaml"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock Text="dotnetfoundation jamesnk newtonsoft" Foreground="BlueViolet"/>
+                        </StackPanel>
+                    </ui:SettingsCard.Header>
+                </ui:SettingsCard>
+            </ui:SettingsExpander.Items>
+        </ui:SettingsExpander>
     </Grid>
 </Page>

@@ -31,8 +31,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>        
                 </Grid.ColumnDefinitions>
-                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="Medium"  Grid.Column="0" Text="Stars AI Copilot"/>
-                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="SemiBold" Grid.Column="1" x:Name="AppVersionShow" Foreground="BlueViolet" HorizontalAlignment="Left"/>
+                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="Medium"  Foreground="BlueViolet" Grid.Column="0" Text="Stars AI Copilot"/>
+                <TextBlock FontFamily="{StaticResource Mooli}" Margin="5,17,0,0" FontWeight="SemiBold" Grid.Column="1" x:Name="AppVersionShow" HorizontalAlignment="Left"/>
             </Grid>
         </Grid>
         <ui:NavigationView x:Name="NavView" 
@@ -60,12 +60,7 @@
                 </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
-                <ui:NavigationViewItem Content="帮助" IsEnabled="False" Tag="StarsAICopilot.Pages.HelpsPage">
-                    <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Help}" FontSize="16"/>
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-                <ui:NavigationViewItem IsEnabled="False" Content="设置" Tag="StarsAICopilot.Pages.SettingsPage">
+                <ui:NavigationViewItem Content="设置" Tag="StarsAICopilot.Pages.SettingsPage">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
@@ -75,11 +70,13 @@
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
+                <!--
                 <ui:NavigationViewItem Content="调试" IsEnabled="False" Tag="StarsAICopilot.Pages.TestPage">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.DeveloperTools}" FontSize="16"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
+                -->
             </ui:NavigationView.FooterMenuItems>
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ui:Frame Margin="45" x:Name="CurrentPage"/>
