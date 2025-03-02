@@ -1,7 +1,6 @@
-using Page = System.Windows.Controls.Page;
-using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 using System.Windows;
 using StarsAICopilot.Windows.Tools;
+using Page = System.Windows.Controls.Page;
 
 namespace StarsAICopilot.Pages;
 
@@ -11,10 +10,10 @@ public partial class ToolsPage : Page
     {
         InitializeComponent();
     }
-    
+
     private void ToolsTranslate(object sender, RoutedEventArgs e)
     {
-        TranslateTools translate = TranslateTools.Instance;
+        var translate = TranslateTools.Instance;
         if (!translate.IsVisible)
         {
             translate.Show();

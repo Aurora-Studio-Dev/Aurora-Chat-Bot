@@ -7,45 +7,55 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <Company>Aurora Studio (THZ)</Company>
-        <AssemblyVersion></AssemblyVersion>
-        <FileVersion></FileVersion>
+        <AssemblyVersion>1.3.0</AssemblyVersion>
+        <FileVersion>1.3.0</FileVersion>
         <ApplicationIcon>Image\Icon\logo.ico</ApplicationIcon>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0" />
-      <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1" />
-      <PackageReference Include="MdXaml" Version="1.27.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0"/>
+        <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.1"/>
+        <PackageReference Include="MdXaml" Version="1.27.0"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Fonts\Mooli.ttf" />
-      <Resource Include="Fonts\Mooli.ttf" />
-      <None Remove="Image\Icon\WENXIN.svg" />
-      <None Remove="Image\Icon\ZHIPU.svg" />
-      <None Remove="Fonts\YSZW.ttf" />
-      <Resource Include="Fonts\YSZW.ttf" />
-      <None Remove="Image\Icon\logo.png" />
-      <Resource Include="Image\Icon\logo.png" />
-      <None Remove="Image\Icon\deepseek.svg" />
+        <None Remove="Fonts\Mooli.ttf"/>
+        <Resource Include="Fonts\Mooli.ttf"/>
+        <None Remove="Image\Icon\WENXIN.svg"/>
+        <None Remove="Image\Icon\ZHIPU.svg"/>
+        <None Remove="Fonts\YSZW.ttf"/>
+        <Resource Include="Fonts\YSZW.ttf"/>
+        <None Remove="Image\Icon\logo.png"/>
+        <Resource Include="Image\Icon\logo.png"/>
+        <None Remove="Image\Icon\deepseek.svg"/>
+        <Page Remove="Language\en.xaml"/>
+        <Resource Include="Language\en.xaml"/>
+        <Page Remove="Language\zh-CN.xaml"/>
+        <Resource Include="Language\zh-CN.xaml"/>
+        <Page Remove="Language\zh-MS.xaml"/>
+        <Resource Include="Language\zh-MS.xaml"/>
+        <None Remove="Image\Demo\dark.png"/>
+        <Resource Include="Image\Demo\dark.png"/>
+        <None Remove="Image\Demo\light.png"/>
+        <Resource Include="Image\Demo\light.png"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Image\" />
-      <Folder Include="Language\" />
+        <Folder Include="Image\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="Image\Icon\deepseek.svg" />
+        <Content Include="Image\Icon\deepseek.svg"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Page Update="Windows\MainWindow.xaml">
-        <Generator>MSBuild:Compile</Generator>
-        <XamlRuntime>Wpf</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
+        <Page Update="Windows\MainWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <XamlRuntime>Wpf</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
     </ItemGroup>
 
 </Project>

@@ -1,56 +1,100 @@
-﻿using iNKORE.UI.WPF.Modern.Media.Animation;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using iNKORE.UI.WPF.Modern;
 using iNKORE.UI.WPF.Modern.Controls;
-using StarsAICopilot.Pages;  
-using Page = System.Windows.Controls.Page;
+using iNKORE.UI.WPF.Modern.Media.Animation;
 using StarsAICopilot.CS;
+using StarsAICopilot.Pages;
+using StarsAICopilot.Windows;
+using Page = System.Windows.Controls.Page;
 
 namespace StarsAICopilot;
 
 /// <summary>
-/// Interaction logic for MainWindow.xaml
+///     Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow
 {
-    private Page _home = new HomePage();
-    private Page _chat = new ChatPage();
-    private Page _tools = new ToolsPage();
-    private Page _settings = new SettingsPage();
-    private Page _about = new AboutPage();
-    private Page _test = new TestPage();
-    
     private const string DefaultTheme = "Light";
+    private bool _isMainClosing;
+    public bool IsMainClosing => _isMainClosing;
+    private static WelcomeWindow _instance;
     
+    private readonly Page _about = new AboutPage();
+    private readonly Page _chat = new ChatPage();
+
+    private readonly Page _home = new HomePage();
+    private readonly Page _settings = new SettingsPage();
+    private readonly Page _test = new TestPage();
+    private readonly Page _tools = new ToolsPage();
+
     public MainWindow()
     {
         InitializeComponent();
         CurrentPage.Navigate(_home);
         cfile();
-        AppVersionShow.Text = "Release Version 1.0.1";
         SettingTheme();
+        Welcome();
+        DetachCloseHandler();
+    }
+    
+    public void DetachCloseHandler()
+    {
+        this.Closing -= All_Close;
+    }
+    public void All_Close(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        if (_isMainClosing) return;
+        _isMainClosing = true;
+
+        Dispatcher.BeginInvoke(new Action(() => {
+            if (WelcomeWindow.Instance != null && WelcomeWindow.Instance.IsVisible)
+            {
+                WelcomeWindow.Instance.Closing -= WelcomeWindow.Instance.WelcomeWindow_Closing;
+                WelcomeWindow.Instance.Close();
+            }
+        }));
+
+        e.Cancel = false;
     }
 
-    void SettingTheme()
+    private void Welcome()
+    {
+        if (ConfigHelper.CurrentConfig.IsWelcome == string.Empty)
+        {
+            Hide();
+            var welcome = WelcomeWindow.Instance;
+            if (!welcome.IsVisible)
+            {
+                welcome.Show();
+            }
+            else
+            {
+                welcome.Activate();
+                welcome.Topmost = true;
+                welcome.Topmost = false;
+            }
+        }
+    }
+
+    private void SettingTheme()
     {
         var theme = ConfigHelper.CurrentConfig.Theme ?? DefaultTheme;
         ThemeManager.Current.ApplicationTheme = theme switch
         {
             "Dark" => ApplicationTheme.Dark,
-            _      => ApplicationTheme.Light 
+            _ => ApplicationTheme.Light
         };
     }
 
-    void cfile()
+    private void cfile()
     {
         try
         {
-            string applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string FolderName = "sac";
-            string FolderPath = Path.Combine(applicationDirectory, FolderName);
+            var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var FolderName = "sac";
+            var FolderPath = Path.Combine(applicationDirectory, FolderName);
             if (!Directory.Exists(FolderPath))
-            {
                 try
                 {
                     Directory.CreateDirectory(FolderPath);
@@ -58,75 +102,68 @@ public partial class MainWindow
                 catch
                 {
                 }
-            }
 
             //生成Config.json文件
-            string FileName = "config.json";
-            string FilePath = Path.Combine(FolderPath, FileName);
+            var FileName = "config.json";
+            var FilePath = Path.Combine(FolderPath, FileName);
             if (!File.Exists(FilePath))
-            {
                 try
                 {
-                    using (File.Create(FilePath)) ;
+                    using (File.Create(FilePath))
+                    {
+                        ;
+                    }
                 }
                 catch (Exception ex)
                 {
                 }
-            }
         }
         catch
         {
-
         }
     }
 
     /// <summary>
-    ///    Navigation trigger handler.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void NavigationTriggered(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+    ///     Navigation trigger handler.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
+    private void NavigationTriggered(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+    {
+        if (args.IsSettingsInvoked)
         {
-            if (args.IsSettingsInvoked)
-            {
-                NavigateTo(typeof(SettingsPage), args.RecommendedNavigationTransitionInfo);
-            }
-            else if (args.InvokedItemContainer?.Tag != null)
-            {
-                var pageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
-                if (pageType != null)
-                {
-                    NavigateTo(pageType, args.RecommendedNavigationTransitionInfo);
-                }
-            }
+            NavigateTo(typeof(SettingsPage), args.RecommendedNavigationTransitionInfo);
         }
-
-        /// <summary>
-        ///    Navigation to a specific page.
-        /// </summary>
-        /// <param name="navPageType">Type of the page.</param>
-        /// <param name="transitionInfo">Transition animation.</param>
-        private void NavigateTo(Type navPageType, NavigationTransitionInfo transitionInfo)
+        else if (args.InvokedItemContainer?.Tag != null)
         {
-            // 空值保护
-            if (CurrentPage?.Content == null || navPageType == null) return;
-
-            var preNavPageType = CurrentPage.Content.GetType();
-            if (navPageType == preNavPageType) return;
-            
-            var pageMapping = new Dictionary<Type, Page>
-            {
-                { typeof(HomePage), _home },
-                { typeof(ChatPage), _chat },
-                { typeof(ToolsPage), _tools },
-                { typeof(SettingsPage), _settings },
-                { typeof(AboutPage), _about },
-                { typeof(TestPage), _test }
-            };
-
-            if (pageMapping.TryGetValue(navPageType, out var targetPage))
-            {
-                CurrentPage.Navigate(targetPage, transitionInfo);
-            }
+            var pageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
+            if (pageType != null) NavigateTo(pageType, args.RecommendedNavigationTransitionInfo);
         }
+    }
+
+    /// <summary>
+    ///     Navigation to a specific page.
+    /// </summary>
+    /// <param name="navPageType">Type of the page.</param>
+    /// <param name="transitionInfo">Transition animation.</param>
+    private void NavigateTo(Type navPageType, NavigationTransitionInfo transitionInfo)
+    {
+        // 空值保护
+        if (CurrentPage?.Content == null || navPageType == null) return;
+
+        var preNavPageType = CurrentPage.Content.GetType();
+        if (navPageType == preNavPageType) return;
+
+        var pageMapping = new Dictionary<Type, Page>
+        {
+            { typeof(HomePage), _home },
+            { typeof(ChatPage), _chat },
+            { typeof(ToolsPage), _tools },
+            { typeof(SettingsPage), _settings },
+            { typeof(AboutPage), _about },
+            { typeof(TestPage), _test }
+        };
+
+        if (pageMapping.TryGetValue(navPageType, out var targetPage)) CurrentPage.Navigate(targetPage, transitionInfo);
+    }
 }

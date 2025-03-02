@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!-- Home -->
+    <s:String x:Key="Home.Title">首页</s:String>
+    <s:String x:Key="Home.Description">公告和信息服务。</s:String>
+
+    <!-- Chat -->
+    <s:String x:Key="Chat.Title">聊天</s:String>
+    <s:String x:Key="Chat.Description">和AI大模型聊天。</s:String>
+
+    <s:String x:Key="Chat.Button.Send">发送</s:String>
+
+    <!-- Tools -->
+    <s:String x:Key="Tools.Title">工具</s:String>
+    <s:String x:Key="Tools.Description">实用工具。</s:String>
+
+    <s:String x:Key="Tools.Content.ToolsCard.Translate.Title">翻译</s:String>
+    <s:String x:Key="Tools.Content.ToolsCard.Translate.Description">使用AI大模型进行更精准的翻译。</s:String>
+
+    <s:String x:Key="Tools.Button.Start">启动！</s:String>
+
+    <!-- Settings -->
+    <s:String x:Key="Settings.Title">设置</s:String>
+    <s:String x:Key="Settings.Description">设置你的应用程序。</s:String>
+
+    <s:String x:Key="Settings.Tab.General">通用</s:String>
+    <s:String x:Key="Settings.Tab.API">API 配置</s:String>
+
+    <s:String x:Key="Settings.SettingsCard.Language.Header">语言</s:String>
+    <s:String x:Key="Settings.SettingsCard.Language.Description">设置软件的语言。</s:String>
+    <s:String x:Key="Settings.SettingsCard.Theme.Header">主题</s:String>
+    <s:String x:Key="Settings.SettingsCard.Theme.Description">设置软件的主题。</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIConfig.Header">OpenAI 格式的 API</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIConfig.Description">设置AI服务的API。</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIURL">API 地址:</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIKEY">API 密钥:</s:String>
+    <s:String x:Key="Settings.SettingsCard.Mod">模型:</s:String>
+
+    <s:String x:Key="Settings.Language.zh-CN">简体中文</s:String>
+    <s:String x:Key="Settings.Language.zh-MS">微软中文</s:String>
+    <s:String x:Key="Settings.Language.en">English</s:String>
+
+    <s:String x:Key="Settings.MsgBox.EmptyKeyOrMod">API Url、API Key 或 Mod 为空！</s:String>
+    <s:String x:Key="Settings.MsgBox.IsOK">你是否要保存？</s:String>
+
+    <!-- About -->
+    <s:String x:Key="AboutPage.Title">关于</s:String>
+    <s:String x:Key="AboutPage.Description">关于此应用程序。</s:String>
+    <s:String x:Key="AboutPage.Pack">使用的包与项目</s:String>
+
+    <!-- Translate -->
+    <s:String x:Key="TranslateTools.Title">翻译工具</s:String>
+    <s:String x:Key="TranslateTools.Subtitle">智能翻译</s:String>
+    <s:String x:Key="TranslateTools.Description">通过大语言模型进行更精准的文本翻译。</s:String>
+    <s:String x:Key="TranslateTools.SourceLangPlaceholder">输入源语言</s:String>
+    <s:String x:Key="TranslateTools.TargetLangPlaceholder">输入目标语言</s:String>
+    <s:String x:Key="TranslateTools.InputLabel">输入文本</s:String>
+    <s:String x:Key="TranslateTools.OutputLabel">翻译结果</s:String>
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Nav.Home">主页</s:String>
+    <s:String x:Key="MainWindow.Nav.Chat">聊天</s:String>
+    <s:String x:Key="MainWindow.Nav.Tools">工具</s:String>
+    <s:String x:Key="MainWindow.Nav.Settings">设置</s:String>
+    <s:String x:Key="MainWindow.Nav.About">关于</s:String>
+
+    <!-- WelcomeWindow -->
+    <s:String x:Key="WelcomeWindow.Nav.Lang">语言</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.Welcome">欢迎</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.Personalize">个性化</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.APIConfig">API 配置</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.StartUse">开始使用</s:String>
+
+    <s:String x:Key="WelcomeWindow.Title">欢迎</s:String>
+
+    <s:String x:Key="WelcomeWindow.Button.P">上一步</s:String>
+    <s:String x:Key="WelcomeWindow.Button.N">下一步</s:String>
+
+    <s:String x:Key="WelcomeWindow.Main.Title">欢迎使用 Stars AI Copilot ！</s:String>
+    <s:String x:Key="WelcomeWindow.Main.Description.1">有朋自远方来，不亦乐乎?</s:String>
+    <s:String x:Key="WelcomeWindow.Main.Description.2"></s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Content">使用此软件即代表您已阅读并同意</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.1">《许可协议》</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.2">《服务协议》</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.3">《隐私协议》</s:String>
+    <s:String x:Key="WelcomeWindow.Main.APIConfig.Tip">请点击按钮保存！</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Title">你好，欢迎选择本软件！</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Description">好东西就要来了！</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Content.1">你已完成初始设置，准备好开始使用</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Content.2">Stars AI Copilot 了吗？祝你使用愉快！</s:String>
+</ResourceDictionary>

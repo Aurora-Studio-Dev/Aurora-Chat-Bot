@@ -3,38 +3,36 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:StarsAICopilot.Pages"
       xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       mc:Ignorable="d"
       Title="AboutPage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>   
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                Margin="0,0,0,5"
-                MinHeight="60">
+                Margin="0,0,0,5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}" 
-                             FontSize="28"/>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}"
+                             FontSize="32" />
                 <StackPanel Margin="12,0,0,0">
-                    <TextBlock Text="关于" 
-                               FontSize="24" 
-                               FontWeight="SemiBold"/>
-                    <TextBlock Text="关于应用程序。" 
-                               FontSize="14"/>
+                    <TextBlock Text="{DynamicResource AboutPage.Title}"
+                               FontSize="28"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{DynamicResource AboutPage.Description}"
+                               FontSize="16" />
                 </StackPanel>
             </StackPanel>
         </Border>
-        <ui:SettingsExpander Grid.Row="1" Header="使用的包与项目">
+        <ui:SettingsExpander Grid.Row="1" Header="{DynamicResource AboutPage.Pack}">
             <ui:SettingsExpander.Items>
                 <ui:SettingsCard>
                     <ui:SettingsCard.Header>
                         <StackPanel>
                             <TextBlock Text="iNKORE.UI.WPF.Modern"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock Text="iNKORE Studio" Foreground="BlueViolet"/>
+                                       FontWeight="SemiBold" />
+                            <TextBlock Text="iNKORE Studio" Foreground="BlueViolet" />
                         </StackPanel>
                     </ui:SettingsCard.Header>
                 </ui:SettingsCard>
@@ -42,8 +40,8 @@
                     <ui:SettingsCard.Header>
                         <StackPanel>
                             <TextBlock Text="MahApps.Metro.IconPacks"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock Text="punker76" Foreground="BlueViolet"/>
+                                       FontWeight="SemiBold" />
+                            <TextBlock Text="punker76" Foreground="BlueViolet" />
                         </StackPanel>
                     </ui:SettingsCard.Header>
                 </ui:SettingsCard>
@@ -51,17 +49,17 @@
                     <ui:SettingsCard.Header>
                         <StackPanel>
                             <TextBlock Text="MdXaml"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock Text="whistyun" Foreground="BlueViolet"/>
+                                       FontWeight="SemiBold" />
+                            <TextBlock Text="whistyun" Foreground="BlueViolet" />
                         </StackPanel>
                     </ui:SettingsCard.Header>
                 </ui:SettingsCard>
                 <ui:SettingsCard>
                     <ui:SettingsCard.Header>
                         <StackPanel>
-                            <TextBlock Text="MdXaml"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock Text="dotnetfoundation jamesnk newtonsoft" Foreground="BlueViolet"/>
+                            <TextBlock Text="Newtonsoft.Json"
+                                       FontWeight="SemiBold" />
+                            <TextBlock Text="dotnetfoundation jamesnk newtonsoft" Foreground="BlueViolet" />
                         </StackPanel>
                     </ui:SettingsCard.Header>
                 </ui:SettingsCard>

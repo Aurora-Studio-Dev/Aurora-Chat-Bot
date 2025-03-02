@@ -7,26 +7,27 @@ namespace StarsAICopilot.CS;
 public static class ConfigHelper
 {
     private static readonly string ConfigPath = Path.Combine(AppContext.BaseDirectory, "sac", "config.json");
+
     private static readonly JsonSerializerOptions Options = new()
     {
         PropertyNameCaseInsensitive = true,
         WriteIndented = true
     };
-    
-    // 初始化默认配置，确保非null
-    public static ApiConfig CurrentConfig { get; private set; } = new ApiConfig();
 
     static ConfigHelper()
     {
         LoadConfig();
     }
 
+    // 初始化默认配置，确保非null
+    public static ApiConfig CurrentConfig { get; private set; } = new();
+
     private static void LoadConfig()
     {
         try
         {
             var configDir = Path.GetDirectoryName(ConfigPath);
-        
+
             if (!Directory.Exists(configDir))
             {
                 Directory.CreateDirectory(configDir!);
@@ -41,7 +42,7 @@ public static class ConfigHelper
             }
 
             var json = File.ReadAllText(ConfigPath);
-        
+
             if (string.IsNullOrWhiteSpace(json))
             {
                 SaveConfig();
@@ -49,10 +50,7 @@ public static class ConfigHelper
             }
 
             var loadedConfig = JsonSerializer.Deserialize<ApiConfig>(json, Options);
-            if (loadedConfig != null)
-            {
-                CurrentConfig = loadedConfig;
-            }
+            if (loadedConfig != null) CurrentConfig = loadedConfig;
         }
         catch (Exception ex)
         {
@@ -73,5 +71,7 @@ public static class ConfigHelper
         public string ApiUrl { get; set; } = string.Empty;
         public string Mod { get; set; } = string.Empty;
         public string Theme { get; set; } = string.Empty;
+        public string Language { get; set; } = string.Empty;
+        public string IsWelcome { get; set; } = string.Empty;
     }
 }

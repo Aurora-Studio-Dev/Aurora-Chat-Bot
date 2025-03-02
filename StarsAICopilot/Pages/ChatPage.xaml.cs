@@ -1,33 +1,22 @@
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
-using System.Collections.ObjectModel;
 using StarsAICopilot.CS;
 
 namespace StarsAICopilot.Pages;
 
 public partial class ChatPage
 {
-    public class ChatMessage
-    {
-        public required string Content { get; init; }
-        public required string Sender { get; init; }
-    }
-
     private const string UserRole = "User";
     private const string AssistantRole = "Assistant";
     private static readonly HttpClient HttpClient = new();
-    
-    //private readonly string OpenAIApiKey = "sk-";
-    //private readonly string OpenAIApiUrl = "https://api.chatanywhere.tech/v1/chat/completions";
 
     private readonly string _apikey = ConfigHelper.CurrentConfig.ApiKey;
     private readonly string _apiurl = ConfigHelper.CurrentConfig.ApiUrl;
-
-    public ObservableCollection<ChatMessage> Messages { get; } = new();
 
     public ChatPage()
     {
@@ -35,37 +24,62 @@ public partial class ChatPage
         DataContext = this; // 启用数据绑定上下文
     }
 
+    public ObservableCollection<ChatMessage> Messages { get; } = new();
+
+    // 优化后的命令实现
+    public ICommand CopyMessageCommand => new RelayCommand<ChatMessage>(msg =>
+    {
+        try
+        {
+            // 移除InputBindings相关代码（不需要在这里添加）
+            if (msg?.Content != null)
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Clipboard.SetText(msg.Content);
+                    Console.Beep(); // 可选提示音
+                });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"复制失败: {ex.Message}",
+                "错误",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+        }
+    });
+
     private async void SendButton_Click(object sender, RoutedEventArgs e)
     {
         await ProcessUserInputAsync();
     }
+
     private async Task ProcessUserInputAsync()
     {
         var userMessage = UserInput.Text.Trim();
         if (string.IsNullOrWhiteSpace(userMessage)) return;
 
         // 添加用户消息
-        Messages.Add(new ChatMessage 
-        { 
-            Content = userMessage, 
-            Sender = UserRole 
+        Messages.Add(new ChatMessage
+        {
+            Content = userMessage,
+            Sender = UserRole
         });
         UserInput.Clear();
-        SetUiState(isEnabled: false);
+        SetUiState(false);
 
         try
         {
             var response = await GetGptResponseAsync();
-            Messages.Add(new ChatMessage 
-            { 
-                Content = response, 
-                Sender = AssistantRole 
+            Messages.Add(new ChatMessage
+            {
+                Content = response,
+                Sender = AssistantRole
             });
             ScrollToBottom();
         }
         finally
         {
-            SetUiState(isEnabled: true);
+            SetUiState(true);
         }
     }
 
@@ -75,7 +89,7 @@ public partial class ChatPage
         {
             using var request = CreateApiRequest();
             using var response = await HttpClient.SendAsync(request);
-            
+
             if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsStringAsync();
@@ -101,7 +115,7 @@ public partial class ChatPage
 
         var requestBody = new
         {
-            model = "gpt-4o-mini",
+            model = ConfigHelper.CurrentConfig.Mod,
             messages,
             temperature = 0.7
         };
@@ -133,10 +147,7 @@ public partial class ChatPage
 
     private void ScrollToBottom()
     {
-        if (ChatHistory.Items.Count > 0)
-        {
-            ChatHistory.ScrollIntoView(ChatHistory.Items[^1]);
-        }
+        if (ChatHistory.Items.Count > 0) ChatHistory.ScrollIntoView(ChatHistory.Items[^1]);
     }
 
     private void SetUiState(bool isEnabled)
@@ -144,10 +155,41 @@ public partial class ChatPage
         SendButton.IsEnabled = isEnabled;
         UserInput.IsEnabled = isEnabled;
     }
+
+    private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        var currentWidth = e.NewSize.Width;
+
+        // 小屏幕适配
+        if (currentWidth < 800)
+        {
+            ChatHistory.FontSize = 14;
+            UserInput.Margin = new Thickness(0, 0, 5, 0);
+            SendButton.Width = 70;
+            SendButton.FontSize = 14;
+        }
+        else
+        {
+            ChatHistory.FontSize = 15;
+            UserInput.Margin = new Thickness(0, 0, 10, 0);
+            SendButton.Width = 80;
+            SendButton.FontSize = 16;
+        }
+
+        ChatHistory.InvalidateMeasure();
+        ChatHistory.UpdateLayout();
+    }
+
+    public class ChatMessage
+    {
+        public required string Content { get; init; }
+        public required string Sender { get; init; }
+    }
+
     private class RelayCommand<T> : ICommand
     {
-        private readonly Action<T> _execute;
         private readonly Func<T, bool> _canExecute;
+        private readonly Action<T> _execute;
 
         public RelayCommand(Action<T> execute, Func<T, bool> canExecute = null)
         {
@@ -155,62 +197,20 @@ public partial class ChatPage
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => 
-            _canExecute?.Invoke((T)parameter) ?? true;
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute?.Invoke((T)parameter) ?? true;
+        }
 
-        public void Execute(object parameter) => 
+        public void Execute(object parameter)
+        {
             _execute((T)parameter);
+        }
 
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
-    }
-
-    // 优化后的命令实现
-    public ICommand CopyMessageCommand => new RelayCommand<ChatMessage>(msg =>
-    {
-        try
-        {
-            // 移除InputBindings相关代码（不需要在这里添加）
-            if (msg?.Content != null)
-            {
-                Application.Current.Dispatcher.Invoke(() => 
-                {
-                    Clipboard.SetText(msg.Content);
-                    Console.Beep(); // 可选提示音
-                });
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"复制失败: {ex.Message}", 
-                "错误", 
-                MessageBoxButton.OK, 
-                MessageBoxImage.Error);
-        }
-    });
-    private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
-    {
-        var currentWidth = e.NewSize.Width;
-    
-        // 小屏幕适配
-        if (currentWidth < 800)
-        {
-            ChatHistory.FontSize = 14;
-            UserInput.Margin = new Thickness(0,0,5,0);
-            SendButton.Width = 70;
-            SendButton.FontSize = 14;
-        }
-        else 
-        {
-            ChatHistory.FontSize = 15;
-            UserInput.Margin = new Thickness(0,0,10,0);
-            SendButton.Width = 80;
-            SendButton.FontSize = 16;
-        }
-        ChatHistory.InvalidateMeasure();
-        ChatHistory.UpdateLayout();
     }
 }

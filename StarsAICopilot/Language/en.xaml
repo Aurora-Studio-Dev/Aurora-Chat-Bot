@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Home -->
+    <s:String x:Key="Home.Title">Home</s:String>
+    <s:String x:Key="Home.Description">Announcement and Information Services.</s:String>
+
+    <!-- Chat -->
+    <s:String x:Key="Chat.Title">Chat</s:String>
+    <s:String x:Key="Chat.Description">Conversing with AI models.</s:String>
+
+    <s:String x:Key="Chat.Button.Send">Send</s:String>
+
+    <!-- Tools -->
+    <s:String x:Key="Tools.Title">Tools</s:String>
+    <s:String x:Key="Tools.Description">Practical tools.</s:String>
+
+    <s:String x:Key="Tools.Content.ToolsCard.Translate.Title">Translate</s:String>
+    <s:String x:Key="Tools.Content.ToolsCard.Translate.Description">Through large language models, text can be translated more accurately and with higher quality. </s:String>
+
+    <s:String x:Key="Tools.Button.Start">Start</s:String>
+
+    <!-- Settings -->
+    <s:String x:Key="Settings.Title">Settings</s:String>
+    <s:String x:Key="Settings.Description">Settings for the application.</s:String>
+
+    <s:String x:Key="Settings.Tab.General">General</s:String>
+    <s:String x:Key="Settings.Tab.API">API Config</s:String>
+
+    <s:String x:Key="Settings.SettingsCard.Language.Header">Language</s:String>
+    <s:String x:Key="Settings.SettingsCard.Language.Description">Select the language of the application.</s:String>
+    <s:String x:Key="Settings.SettingsCard.Theme.Header">Theme</s:String>
+    <s:String x:Key="Settings.SettingsCard.Theme.Description">Select the theme of the application.</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIConfig.Header">Opean AI API Config</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIConfig.Description">Configure the API key of the OpenAI API.</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIURL">API Url:</s:String>
+    <s:String x:Key="Settings.SettingsCard.APIKEY">API Key:</s:String>
+    <s:String x:Key="Settings.SettingsCard.Mod">Mod:</s:String>
+
+    <s:String x:Key="Settings.Language.zh-CN">Simplified Chinese</s:String>
+    <s:String x:Key="Settings.Language.zh-MS">Microsoft Chinese</s:String>
+    <s:String x:Key="Settings.Language.en">English</s:String>
+
+    <s:String x:Key="Settings.MsgBox.EmptyKeyOrMod">Empty API Url、API Key or Mod.</s:String>
+    <s:String x:Key="Settings.MsgBox.IsOK">Do you want to save?</s:String>
+
+    <!-- About -->
+    <s:String x:Key="AboutPage.Title">About</s:String>
+    <s:String x:Key="AboutPage.Description">About the application.</s:String>
+    <s:String x:Key="AboutPage.Pack">Using Packs</s:String>
+
+    <!-- Translate -->
+    <s:String x:Key="TranslateTools.Title">Translate Tools</s:String>
+    <s:String x:Key="TranslateTools.Subtitle">Smart Translation</s:String>
+    <s:String x:Key="TranslateTools.Description">Translate text more accurately with AI models.</s:String>
+    <s:String x:Key="TranslateTools.SourceLangPlaceholder">Enter source language</s:String>
+    <s:String x:Key="TranslateTools.TargetLangPlaceholder">Enter target language</s:String>
+    <s:String x:Key="TranslateTools.InputLabel">Input Text</s:String>
+    <s:String x:Key="TranslateTools.OutputLabel">Translated Text</s:String>
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Nav.Home">Home</s:String>
+    <s:String x:Key="MainWindow.Nav.Chat">Chat</s:String>
+    <s:String x:Key="MainWindow.Nav.Tools">Tools</s:String>
+    <s:String x:Key="MainWindow.Nav.Settings">Settings</s:String>
+    <s:String x:Key="MainWindow.Nav.About">About</s:String>
+
+    <!-- WelcomeWindow -->
+    <s:String x:Key="WelcomeWindow.Nav.Lang">Language</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.Welcome">Welcome</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.Personalize">Personalize</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.APIConfig">API Config</s:String>
+    <s:String x:Key="WelcomeWindow.Nav.StartUse">Start to use</s:String>
+
+    <s:String x:Key="WelcomeWindow.Title">Welcome</s:String>
+
+    <s:String x:Key="WelcomeWindow.Button.P">Previous</s:String>
+    <s:String x:Key="WelcomeWindow.Button.N">Next</s:String>
+
+    <s:String x:Key="WelcomeWindow.Main.Title">Welcome to use Stars AI Copilot !</s:String>
+    <s:String x:Key="WelcomeWindow.Main.Description.1">Is it not a joy to have friends </s:String>
+    <s:String x:Key="WelcomeWindow.Main.Description.2">coming from afar?</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Content">Use thia app is stand of you was reading and agree to the</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.1">App License</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.2">App Service Agreement</s:String>
+    <s:String x:Key="WelcomeWindow.Main.ReadingAgree.Link.3">Privacy Policy</s:String>
+    <s:String x:Key="WelcomeWindow.Main.APIConfig.Tip">Click the button to save!</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Title">Hello！Thank you to use this app!</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Description">Good things is coming!</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Content.1">You're finished starter config. Using happy!</s:String>
+    <s:String x:Key="WelcomeWindow.Main.StartUse.Content.2"></s:String>
+</ResourceDictionary>

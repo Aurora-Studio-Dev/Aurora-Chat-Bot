@@ -5,68 +5,91 @@
       xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="SettingsPage">
+      Title="{DynamicResource Settings.Title}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>   
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                Margin="0,0,0,5"
-                MinHeight="60">
+                Margin="0,0,0,5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}" 
-                             FontSize="28"/>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}"
+                             FontSize="32" />
                 <StackPanel Margin="12,0,0,0">
-                    <TextBlock Text="设置" 
-                               FontSize="24" 
-                               FontWeight="SemiBold"/>
-                    <TextBlock Text="配置你的应用程序。" 
-                               FontSize="14"/>
+                    <TextBlock Text="{DynamicResource Settings.Title}"
+                               FontSize="28"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{DynamicResource Settings.Description}"
+                               FontSize="16" />
                 </StackPanel>
             </StackPanel>
         </Border>
         <StackPanel Grid.Row="1" Margin="10,0,10,0" VerticalAlignment="Top">
             <TabControl Style="{StaticResource {x:Static ui:ThemeKeys.TabControlPivotStyleKey}}">
-                <TabItem FontSize="20" Header="通用">
+                <TabItem FontSize="20" Header="{DynamicResource Settings.Tab.General}">
                     <StackPanel>
-                        <TextBlock Text="个性化"/>
                         <ui:SettingsCard
-                                         Header="主题"
-                                         Description="在此设置应用程序的颜色主题"
-                        >
+                            Header="{DynamicResource Settings.SettingsCard.Language.Header}"
+                            Description="{DynamicResource Settings.SettingsCard.Language.Description}">
                             <ui:SettingsCard.HeaderIcon>
-                                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Light}" FontSize="16"/>
+                                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.LocaleLanguage}" FontSize="16" />
+                            </ui:SettingsCard.HeaderIcon>
+                            <ComboBox
+                                x:Name="LanguageComboBox"
+                                SelectedValuePath="Tag"
+                                SelectionChanged="LanguageComboBox_SelectionChanged"
+                                Width="200">
+                                <ComboBoxItem Content="{DynamicResource Settings.Language.zh-CN}" Tag="zh-CN" />
+                                <ComboBoxItem Content="{DynamicResource Settings.Language.zh-MS}" Tag="zh-MS" />
+                                <ComboBoxItem Content="{DynamicResource Settings.Language.en}" Tag="en" />
+                            </ComboBox>
+                        </ui:SettingsCard>
+                        <TextBlock Margin="0,10,0,0" Text="{DynamicResource Settings.SettingsCard.Theme.Header}" />
+                        <ui:SettingsCard
+                            Header="{DynamicResource Settings.SettingsCard.Theme.Header}"
+                            Description="{DynamicResource Settings.SettingsCard.Theme.Description}">
+                            <ui:SettingsCard.HeaderIcon>
+                                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Light}" FontSize="16" />
                             </ui:SettingsCard.HeaderIcon>
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="200">
-                                <RadioButton IsChecked="True" Content="Light" GroupName="Theme" x:Name="ThemeLight" Checked ="ThemeLight_OnChecked"/>
-                                <RadioButton Content="Dark" GroupName="Theme" x:Name="ThemeDark" Checked="ThemeDark_OnChecked"/>
+                                <RadioButton IsChecked="True" Content="Light" GroupName="Theme" x:Name="ThemeLight"
+                                             Checked="ThemeLight_OnChecked" />
+                                <RadioButton Content="Dark" GroupName="Theme" x:Name="ThemeDark"
+                                             Checked="ThemeDark_OnChecked" />
                             </StackPanel>
                         </ui:SettingsCard>
                     </StackPanel>
                 </TabItem>
-                <TabItem FontSize="20" Header="API 配置">
-                   <ui:SettingsExpander
-                       Description="配置你的 API"
-                       Header="OpenAI 格式 API"
-                       IsEnabled="True"
-                       IsExpanded="True"
-                       >
-                       <ui:SettingsExpander.Items>
-                           <ui:SettingsCard Header="API 地址:">
-                               <TextBox MinWidth="400" x:Name="ApiUrl"/>
-                           </ui:SettingsCard>
-                           <ui:SettingsCard Header="API 密钥:">
-                               <PasswordBox MinWidth="400" x:Name="ApiKey"/>
-                           </ui:SettingsCard>
-                           <ui:SettingsCard Header="模型名称:">
-                               <TextBox MinWidth="400" x:Name="Mod"/>
-                           </ui:SettingsCard>
-                           <ui:SettingsCard>
-                               <Button Content="保存" Style="{StaticResource AccentButtonStyle}" Click="SaveApi"/>
-                           </ui:SettingsCard>
-                       </ui:SettingsExpander.Items>
-                   </ui:SettingsExpander>
+                <TabItem FontSize="20" Header="{DynamicResource Settings.Tab.API}">
+                    <ui:SettingsExpander
+                        Description="{DynamicResource Settings.SettingsCard.APIConfig.Description}"
+                        Header="{DynamicResource Settings.SettingsCard.APIConfig.Header}"
+                        IsEnabled="True"
+                        IsExpanded="True">
+                        <ui:SettingsExpander.Items>
+                            <ui:SettingsCard Header="{DynamicResource Settings.SettingsCard.APIURL}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox MinWidth="400" x:Name="ApiUrl" Margin="10,0,0,0" />
+                                </StackPanel>
+                            </ui:SettingsCard>
+                            <ui:SettingsCard Header="{DynamicResource Settings.SettingsCard.APIKEY}">
+                                <PasswordBox MinWidth="400" x:Name="ApiKey" />
+                            </ui:SettingsCard>
+                            <ui:SettingsCard Header="{DynamicResource Settings.SettingsCard.Mod}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox MinWidth="200" x:Name="Mod" Margin="10,0,0,0" />
+                                </StackPanel>
+                            </ui:SettingsCard>
+                            <ui:SettingsCard>
+                                <Button Style="{StaticResource AccentButtonStyle}" Click="SaveApi_Click">
+                                    <Button.Content>
+                                        <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.CheckMark}" FontSize="16" />
+                                    </Button.Content>
+                                </Button>
+                            </ui:SettingsCard>
+                        </ui:SettingsExpander.Items>
+                    </ui:SettingsExpander>
                 </TabItem>
             </TabControl>
         </StackPanel>
